@@ -135,9 +135,9 @@
   (setq git-gutter+-modified-sign " ")
   (setq git-gutter+-added-sign " ")
   (setq git-gutter+-deleted-sign " ")
-  (set-face-background 'git-gutter+-modified "yellow")
-  (set-face-background 'git-gutter+-added "green")
-  (set-face-foreground 'git-gutter+-deleted "red"))
+  (set-face-background 'git-gutter+-modified "#fabd2f")
+  (set-face-background 'git-gutter+-added "#b8bb26")
+  (set-face-foreground 'git-gutter+-deleted "#fb4933"))
 
 ;; Ivy & Counsel
 (use-package ivy
@@ -183,6 +183,11 @@
 ;; org-plus-contrib
 (use-package org
   :ensure org-plus-contrib)
+
+;; org-babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t))) ; this line activates ditaa
 
 ;; Powerline
 (use-package powerline
@@ -231,6 +236,7 @@
 ;; which key
 (use-package which-key
   :ensure t
+  :diminish which-key-mode
   :config
   (progn
     (require 'which-key)
