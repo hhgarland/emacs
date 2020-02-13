@@ -42,7 +42,7 @@
 (set-default-coding-systems 'utf-8-unix)
 
 ;; Set the default font
-(set-frame-font "Inconsolata-16" nil t)
+(set-frame-font "Iosevka Term SS09-16" nil t)
 
 ;; Gruvbox theme
 (use-package gruvbox-theme
@@ -189,6 +189,10 @@
  'org-babel-load-languages
  '((ditaa . t))) ; this line activates ditaa
 
+;; org-mode capture
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(define-key global-map "\C-cc" 'org-capture)
+
 ;; Powerline
 (use-package powerline
   :disabled
@@ -241,3 +245,7 @@
   (progn
     (require 'which-key)
     (which-key-mode)))
+
+;; yaml-mode
+(use-package yaml-mode
+  :ensure t)
