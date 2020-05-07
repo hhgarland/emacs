@@ -42,7 +42,7 @@
 (set-default-coding-systems 'utf-8-unix)
 
 ;; Set the default font
-(set-frame-font "Iosevka Term SS09-16" nil t)
+(set-frame-font "JetBrains Mono-18")
 
 ;; Gruvbox theme
 (use-package gruvbox-theme
@@ -155,6 +155,10 @@
   :ensure t
   :bind (("M-x" . counsel-M-x)))
 
+;; Lua-mode
+(use-package lua-mode
+  :ensure t)
+
 ;; Magit
 (use-package magit
   :ensure t
@@ -192,6 +196,14 @@
 ;; org-mode capture
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (define-key global-map "\C-cc" 'org-capture)
+
+;; pdf-tools
+(use-package pdf-tools
+  :pin manual
+  :config
+  (pdf-tools-install)
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-annot-activate-created-annotations t))
 
 ;; Powerline
 (use-package powerline
